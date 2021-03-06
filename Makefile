@@ -10,7 +10,7 @@ PATH_OBJ		=	obj
 PATH_SRC		=	src
 
 #INCLUDE
-SRC_INC			=	lib_tools.h stack_struct.h
+SRC_INC			=	lib_tools.h checker.h push_swap.h
 
 PATH_INC		=	include
 
