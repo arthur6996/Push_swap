@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 11:33:48 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 15:43:43 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/07 15:56:30 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,41 @@ int		exec_instr(char *instruction, t_stack **a, t_stack **b)
 		if (!ft_strcmp(operations[i].key, instruction))
 		{
 			operations[i].value(a, b);
-			return (0);
+			return (1);
 		}
 		i++;
 	}
-	return (1);
+	return (0);
+}
+
+int		read_instr(t_list **instructions)
+{
+	(void)instructions;
+	//TODO utilise get_next_line pour avoir les instructions utilisateurs
+	//TODO gerer erreurs malloc
+	//TODO gerer fin d'instructions
 }
 
 int		read_exec_instr(t_stack **a, t_stack **b)
 {
 	t_list	*instructions;
-	(void)instructions;
-	(void)a;
-	(void)b;
+	t_list	*instr;
+
+	if (read_instructions(&instructions))
+	{
+		delete_list(instructions);
+		return (1);
+	}
+	instr = instructions;
+	while (instr)
+	{
+		if (exec_instr(instr->content, a, b))
+		{
+			delete_list(instructions);
+			return (1);
+		}
+		instr = instr->next;
+	}
+	delete_list(instructions);
 	return (0);
 }
