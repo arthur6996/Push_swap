@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:37:52 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 15:42:30 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/07 18:27:32 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int			is_sorted(t_stack *stack_a, t_stack *stack_b)
 	}
 	return (1);
 }
-
+//TODO find a get_next_line
+//TODO test checker
 int		main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -85,7 +86,6 @@ int		main(int argc, char **argv)
 		return (error(a, b));
 	if (read_exec_instr(&a, &b))
 		return (error(a, b));
-	//!read_stack(b);
 	if (is_sorted(a, b))
 		printf("OK\n");
 	else
