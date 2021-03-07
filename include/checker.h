@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 10:52:28 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 14:10:00 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/07 15:38:18 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-typedef	void (*stack_function)(t_stack a, t_stack b);
+typedef	void (*stack_function)(t_stack **a, t_stack **b);
 
 typedef struct	s_dictionary
 {
@@ -39,7 +39,18 @@ void		read_stack(t_stack *stack);
 unsigned int	size_stack(t_stack *stack);
 
 //MAIN FUNCTIONS
-int			error(void);
-int			read_exec_instr(t_stack **stack_a, t_stack **b);
-int			is_sorted(t_stack *stack_a, t_stack *b);
+int			error(t_stack *a, t_stack *b);
+int			read_exec_instr(t_stack **a, t_stack **b);
+int			is_sorted(t_stack *a, t_stack *b);
+
+//SMALL FUNCTIONS
+int		exec_instr(char *instruction, t_stack **a, t_stack **b);
+
+//INSTRUCTIONS FUNCTIONS
+void	sa(t_stack **a, t_stack **b);
+void	sb(t_stack **a, t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+
 #endif

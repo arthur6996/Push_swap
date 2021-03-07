@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:37:52 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 14:15:28 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/07 15:42:30 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,36 +22,40 @@ static int	check_args(int argc, char **argv)
 	while (i < argc)
 	{
 		if (!is_int(argv[i]))
-			exit (error());
+			exit (error(0, 0));
 		i++;
 	}
 	return (1);
 }
 
-int		error(void)
+int		error(t_stack *a, t_stack *b)
 {
+	if (a)
+		destroy_stack(a);
+	if (b)
+		destroy_stack(b);
 	ft_fdpustr("Error\n", 2);
 	return (1);
 }
 
-static int	check_duplicata(t_stack *stack_a)
+static int	check_duplicata(t_stack *a)
 {
 	t_stack	*current_stack;
 	int		stack_nbr;
 
-	while (stack_a)
+	while (a)
 	{
-		stack_nbr = stack_a->nbr;
-		current_stack = stack_a->next;
+		stack_nbr = a->nbr;
+		current_stack = a->next;
 		while (current_stack)
 		{
 			if (current_stack->nbr == stack_nbr)
-				return (0);
+				return (1);
 			current_stack = current_stack->next;
 		}
-		stack_a = stack_a->next;
+		a = a->next;
 	}
-	return (1);
+	return (0);
 }
 
 int			is_sorted(t_stack *stack_a, t_stack *stack_b)
@@ -69,22 +73,24 @@ int			is_sorted(t_stack *stack_a, t_stack *stack_b)
 
 int		main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc == 1)
 		return (0);
 	check_args(argc, argv);
-	stack_a = create_stack(argc, argv);
-	//! read_stack(stack_a);
-	if (!check_duplicata(stack_a))
-		return (error());
-	stack_b = 0;
-	if (!read_exec_instr(&stack_a, &stack_b))
-		return (error());
-	if (is_sorted(stack_a, stack_b))
+	a = create_stack(argc, argv);
+	b = 0;
+	if (check_duplicata(a))
+		return (error(a, b));
+	if (read_exec_instr(&a, &b))
+		return (error(a, b));
+	//!read_stack(b);
+	if (is_sorted(a, b))
 		printf("OK\n");
 	else
 		printf("KO\n");
+	destroy_stack(a);
+	destroy_stack(b);
 	return (0);
 }

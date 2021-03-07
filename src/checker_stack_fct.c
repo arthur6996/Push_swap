@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_function.c                                   :+:      :+:    :+:   */
+/*   checker_stack_fct.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 10:29:08 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 14:10:37 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/07 15:43:19 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ t_stack	*create_stack(int argc, char **argv)
 	{
 		current_node->next = create_stack_node(ft_atoi(argv[i]));
 		if (!current_node->next)
-		{
-			destroy_stack(first_node);
-			exit (error());
-		}
+			exit (error(first_node, 0));
 		current_node = current_node->next;
 		i++;
 	}
