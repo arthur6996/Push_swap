@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:37:52 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 18:27:32 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/07 18:56:23 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int			is_sorted(t_stack *stack_a, t_stack *stack_b)
 	return (1);
 }
 //TODO find a get_next_line
+//TODO test instructions of rotations
 //TODO test checker
 int		main(int argc, char **argv)
 {
