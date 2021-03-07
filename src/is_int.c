@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:30:17 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/06 21:37:55 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/07 10:52:52 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,28 @@ bool		is_int(char *str)
 			return (0);
 	}
 	return (1);
+}
+
+int		ft_atoi(char *str)
+{
+	int		i;
+	int		nbr;
+	int		sign;
+
+	i = 0;
+	sign = 1;
+	if (!str || !is_nbr(str))
+		return (0);
+	if (str[0] == '-')
+	{
+		sign = -1;
+		i = 1;
+	}
+	nbr = 0;
+	while (str[i])
+	{
+		nbr = nbr * 10 + (str[i] - '0') * sign;
+		i++;
+	}
+	return (nbr);
 }

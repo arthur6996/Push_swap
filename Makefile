@@ -3,7 +3,7 @@
 #***********
 CC				=	gcc
 
-FLAGS			=	-Wall -Werror -Wextra
+FLAGS			=	-Wall -Werror -Wextra  -g3 -fsanitize=address
 
 PATH_OBJ		=	obj
 
@@ -17,7 +17,7 @@ PATH_INC		=	include
 INCLUDE			=	$(addprefix $(PATH_INC)/, $(SRC_INC))
 
 #CHECKER
-SRC_CHECKER			=	checker.c checker_main.c $(SRC_TOOLS)
+SRC_CHECKER			=	$(SRC_TOOLS) checker.c checker_main.c stack_function.c
 
 OBJ_CHECKER		=	$(addprefix $(PATH_OBJ)/, $(SRC_CHECKER:.c=.o))
 

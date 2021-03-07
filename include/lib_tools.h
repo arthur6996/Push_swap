@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:32:04 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/06 21:29:32 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/07 10:42:25 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ unsigned int	ft_strlen(char *str);
 bool	is_int(char *str);
 char	ft_strcmp(char *str1, char *str2);
 void	ft_fdpustr(char *str, int fd);
+int		ft_atoi(char *str);
 
 #endif
