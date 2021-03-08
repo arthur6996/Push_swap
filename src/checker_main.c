@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:37:52 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 18:56:23 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 12:26:23 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int		main(int argc, char **argv)
 	b = 0;
 	if (check_duplicata(a))
 		return (error(a, b));
+	printf("stack at beginning\n");
+	read_stack(a);
 	if (read_exec_instr(&a, &b))
 		return (error(a, b));
 	if (is_sorted(a, b))

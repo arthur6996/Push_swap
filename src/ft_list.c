@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 15:31:55 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 18:26:17 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 11:21:11 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,17 @@ t_list	*list_add_new(void *content, t_list **list)
 	if (!current->next)
 		return (0);
 	return (*list);
+}
+
+void	delete_list(t_list *list)
+{
+	t_list	*next;
+
+	while (list)
+	{
+		next = list->next;
+		free(list->content);
+		free(list);
+		list = next;
+	}
 }

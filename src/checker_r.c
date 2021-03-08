@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 18:43:30 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 18:48:34 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 12:49:11 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	ra(t_stack **a, t_stack **b)
 	t_stack	*content;
 
 	(void)b;
-	if (size_stack(a) < 2)
+	if (size_stack(*a) < 2)
 		return ;
 	buffer = *a;
 	*a = buffer->next;
-	buffer->next = 0;
 	content = *a;
 	while (content->next)
 		content = content->next;
 	content->next = buffer;
+	buffer->next = 0;
 }
 
 void	rb(t_stack **a, t_stack **b)
@@ -34,8 +34,8 @@ void	rb(t_stack **a, t_stack **b)
 	t_stack	*buffer;
 	t_stack	*content;
 
-	(void)b;
-	if (size_stack(b) < 2)
+	(void)a;
+	if (size_stack(*b) < 2)
 		return ;
 	buffer = *b;
 	*b = buffer->next;

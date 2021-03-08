@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 10:29:08 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 15:43:19 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 12:25:45 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ t_stack	*create_stack(int argc, char **argv)
 void	read_stack(t_stack *stack)
 {
 	if (!stack)
+	{
+		printf("empty stack\n");
 		return;
+	}
 	printf("%d", stack->nbr);
 	stack = stack->next;
 	while (stack)
