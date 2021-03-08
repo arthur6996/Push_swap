@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:17:07 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/06 21:31:42 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 16:06:20 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,16 @@ void	ft_fdpustr(char *str, int fd)
 	while (str[i])
 		i++;
 	write(fd, str, i);
+}
+
+void	ft_memcpy(char *dest, char *src, int size)
+{
+	int		i;
+
+	i = 0;
+	while(i < size)
+	{
+		dest[i] = src[i];
+		i++;
+	}
 }

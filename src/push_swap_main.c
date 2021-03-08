@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:28:31 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/08 15:50:09 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 16:35:12 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,20 @@ static int	check_duplicata(int *a, int size_a)
 	return (0);
 }
 
+int		rpl_easy_value(int **a, int size_a)
+{
+	int	*cpy;
+
+	cpy = malloc(sizeof(int) * size_a);
+	if (!cpy)
+		return (1);
+	ft_memcpy(cpy, *a, size_a);
+
+	//trier les valeurs dans une copie du tableau
+	// remplacer le vrai tableau par cette copie
+	return (0);
+}
+
 int		main(int argc, char **argv)
 {
 	int	*a;
@@ -76,5 +90,6 @@ int		main(int argc, char **argv)
 		return (error(0));
 	if (check_duplicata(a, size_a))
 		return (error(a));
+	rpl_easy_value(a);
 	return (0);
 }
