@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 10:52:28 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/07 15:38:18 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 10:46:24 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ unsigned int	size_stack(t_stack *stack);
 int			error(t_stack *a, t_stack *b);
 int			read_exec_instr(t_stack **a, t_stack **b);
 int			is_sorted(t_stack *a, t_stack *b);
+int		get_next_instr(char **buffer);
 
 //SMALL FUNCTIONS
 int		exec_instr(char *instruction, t_stack **a, t_stack **b);

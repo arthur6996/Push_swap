@@ -17,7 +17,7 @@ PATH_INC		=	include
 INCLUDE			=	$(addprefix $(PATH_INC)/, $(SRC_INC))
 
 #CHECKER
-SRC_CHECKER			=	$(SRC_TOOLS) checker_main.c checker_stack_fct.c checker_s_and_p.c checker_rx_instr.c
+SRC_CHECKER			=	$(SRC_TOOLS) checker_main.c checker_stack_fct.c checker_gni.c checker_s_and_p.c checker_rx_instr.c
 
 OBJ_CHECKER		=	$(addprefix $(PATH_OBJ)/, $(SRC_CHECKER:.c=.o))
 
