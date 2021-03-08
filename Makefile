@@ -41,25 +41,24 @@ OBJ_PUSH_SWAP	=	$(addprefix $(PATH_OBJ)/, $(SRC_PUSH_SWAP:.c=.o))
 #**COMMANDS**
 #************
 
-all			:	#$(OBJ) $(INCLUDE)
-				@echo all cmd
+all				:	$(INCLUDE) checker push_swap
 
-checker		:	$(OBJ_CHECKER) $(INCLUDE)
-				$(CC) $(FLAGS) -I$(PATH_INC) $(OBJ_CHECKER) -o $@
-				@#echo $(OBJ_CHECKER)
+checker			:	$(OBJ_CHECKER) $(INCLUDE)
+					$(CC) $(FLAGS) -I$(PATH_INC) $(OBJ_CHECKER) -o $@
 
-#push_swap	:	$(OBJ) $(INCLUDE)
+push_swap		:	$(OBJ_PUSH_SWAP) $(INCLUDE)
+					$(CC) $(FLAGS) -I$(PATH_INC) $(OBJ_PUSH_SWAP) -o $@
 
 exec_test		:	$(OBJ_TEST) $(INCLUDE)
 					$(CC) $(FLAGS) -I$(PATH_INC) $(OBJ_TEST) -o $@
 
 $(PATH_OBJ)/%.o	:	$(PATH_SRC)/%.c $(INCLUDE)
-					$(CC) $(FLAGS) -I$(PATH_INC)/ -c $< -o $@
+					$(CC) $(FLAGS) -I$(PATH_INC) -c $< -o $@
 
 clean		:
 				rm -rf $(PATH_OBJ)/*.o
 
 fclean		:	clean
-				rm -rf exec_test checker
+				rm -rf exec_test checker push_swap
 
 re			:	fclean all

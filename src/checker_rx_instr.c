@@ -6,7 +6,7 @@
 /*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 11:33:48 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/08 12:53:41 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 14:33:51 by abourbou         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,11 @@ int		read_instr(t_list **instructions)
 {
 	int		ret_value;
 	char	*buffer;
+	//!to erase
+	int		nbr_instr = 2;
+
+	printf("instr %d: ", 1);
+	fflush(stdout);
 	ret_value = get_next_instr(&buffer);
 	while (ret_value > 0)
 	{
@@ -75,6 +80,9 @@ int		read_instr(t_list **instructions)
 			delete_list(*instructions);
 			return (1);
 		}
+		printf("instr %d: ", nbr_instr);
+		fflush(stdout);
+		nbr_instr++;
 		ret_value = get_next_instr(&buffer);
 	}
 	if (ret_value == -1)
