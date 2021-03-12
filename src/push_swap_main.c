@@ -63,33 +63,59 @@ static int	check_duplicata(int *a, int size_a)
 	return (0);
 }
 
-int		rpl_easy_value(int **a, int size_a)
+int		rpl_easy_value(int **pa, const int size_a, const int *const_a)
 {
 	int	*cpy;
+	int	i;
+	int	j;
 
 	cpy = malloc(sizeof(int) * size_a);
 	if (!cpy)
 		return (1);
-	ft_memcpy(cpy, *a, size_a);
-
-	//trier les valeurs dans une copie du tableau
-	// remplacer le vrai tableau par cette copie
+	i = 0;
+	while(i < size_a)
+	{
+		j = 0;
+		cpy[i] = 0;
+		while (j < size_a)
+		{
+			if (i != j && const_a[j] < const_a[i])
+				cpy[i]++;
+			j++;
+		}
+		i++;
+	}
+	free(*pa);
+	*pa = cpy;
 	return (0);
 }
 
-int		main(int argc, char **argv)
+static int	valid_args(int argc, char **argv, int **pa)
 {
 	int	*a;
 	int	size_a;
 
-	if (argc < 3)
-		return (0);
 	size_a = argc - 1;
 	a = create_stack(argc, argv);
 	if (!a)
 		return (error(0));
 	if (check_duplicata(a, size_a))
 		return (error(a));
-	rpl_easy_value(a);
+	if (rpl_easy_value(&a, size_a, a))
+		return (error(a));
+	*pa = a;
+	return (0);
+}
+
+//TODO change algorithm of rpl_easy_value
+int		main(int argc, char **argv)
+{
+	int	*a;
+
+	if (argc < 3)
+		return (0);
+	if (valid_args(argc, argv, &a))
+		return(1);
+	free(a);
 	return (0);
 }

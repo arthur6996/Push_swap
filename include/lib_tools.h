@@ -33,7 +33,7 @@ unsigned int	ft_strlen(char *str);
 bool	is_int(char *str);
 char	ft_strcmp(char *str1, char *str2);
 void	ft_fdpustr(char *str, int fd);
-void	ft_memcpy(char *dest, char *src, int size);
+void	ft_memcpy(char *dest, const char *src, const int size);
 int		ft_atoi(char *str);
 
 #endif

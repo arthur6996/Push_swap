@@ -22,7 +22,7 @@ void	ft_fdpustr(char *str, int fd)
 	write(fd, str, i);
 }
 
-void	ft_memcpy(char *dest, char *src, int size)
+void	ft_memcpy(char *dest, const char *src, const int size)
 {
 	int		i;
 
