@@ -33,7 +33,7 @@ SRC_TEST		=	$(SRC_TOOLS) main_of_test.c
 OBJ_TEST		=	$(addprefix $(PATH_OBJ)/, $(SRC_TEST:.c=.o))
 
 #PUSH_SWAP
-SRC_PUSH_SWAP	=	$(SRC_TOOLS) ps_sw_main.c ps_sw_sort_stck_alg.c
+SRC_PUSH_SWAP	=	$(SRC_TOOLS) ps_sw_main.c ps_sw_yt_algo.c
 
 OBJ_PUSH_SWAP	=	$(addprefix $(PATH_OBJ)/, $(SRC_PUSH_SWAP:.c=.o))
 

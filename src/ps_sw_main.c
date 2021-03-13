@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:28:31 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/13 10:52:07 by arthur           ###   ########lyon.fr   */
+/*   Updated: 2021/03/13 11:40:49 by arthur           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,8 @@ static int	valid_args(int argc, char **argv, int **pa)
 }
 
 //TODO change algorithm of rpl_easy_value
-//TODO set b to -1
+//TODO change to chained_list
+//TODO create entropy_calc
 int		main(int argc, char **argv)
 {
 	int	*a;
