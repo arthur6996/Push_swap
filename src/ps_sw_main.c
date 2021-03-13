@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   ps_sw_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: arthur <arthur@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:28:31 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/08 16:35:12 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/13 10:52:07 by arthur           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ int		rpl_easy_value(int **pa, const int size_a, const int *const_a)
 	int	i;
 	int	j;
 
-	cpy = malloc(sizeof(int) * size_a);
+	cpy = malloc(sizeof(int) * (size_a + 1));
 	if (!cpy)
 		return (1);
 	i = 0;
 	while(i < size_a)
 	{
 		j = 0;
-		cpy[i] = 0;
+		cpy[i] = 1;
 		while (j < size_a)
 		{
 			if (i != j && const_a[j] < const_a[i])
@@ -85,11 +85,12 @@ int		rpl_easy_value(int **pa, const int size_a, const int *const_a)
 		}
 		i++;
 	}
+	cpy[i] = -1;
 	free(*pa);
 	*pa = cpy;
 	return (0);
 }
-
+//verified valid args and put it in an arrays
 static int	valid_args(int argc, char **argv, int **pa)
 {
 	int	*a;
@@ -108,15 +109,22 @@ static int	valid_args(int argc, char **argv, int **pa)
 }
 
 //TODO change algorithm of rpl_easy_value
+//TODO set b to -1
 int		main(int argc, char **argv)
 {
 	int	*a;
-
+	int	*b;
 	if (argc < 3)
 		return (0);
 	if (valid_args(argc, argv, &a))
 		return(1);
-	//sort_stack_alg(a);
+	b = malloc(argc * sizeof(int));
+	if (!b)
+		return(error(a));
+	ft_memset((char *)b, 0, (argc - 1) * sizeof(int));
+	b[argc - 1] = -1;
+	//sort_stack_alg(a, b);
 	free(a);
+	free(b);
 	return (0);
 }

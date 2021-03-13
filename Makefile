@@ -25,7 +25,7 @@ OBJ_CHECKER		=	$(addprefix $(PATH_OBJ)/, $(SRC_CHECKER:.c=.o))
 
 #TOOLS
 
-SRC_TOOLS		=	ft_is_int.c ft_fdputstr.c ft_list.c
+SRC_TOOLS		=	ft_is_int.c ft_string.c ft_list.c
 
 #TEST
 SRC_TEST		=	$(SRC_TOOLS) main_of_test.c

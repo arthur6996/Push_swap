@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdputstr.c                                      :+:      :+:    :+:   */
+/*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abourbou <abourbou@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: arthur <arthur@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:17:07 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/08 16:06:20 by abourbou         ###   ########lyon.fr   */
+/*   Updated: 2021/03/13 10:44:17 by arthur           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ void	ft_memcpy(char *dest, const char *src, const int size)
 	while(i < size)
 	{
 		dest[i] = src[i];
+		i++;
+	}
+}
+
+void	ft_memset(char *dest, const char car, const int size)
+{
+	int		i;
+
+	i = 0;
+	while(i < size)
+	{
+		dest[i] = car;
 		i++;
 	}
 }
