@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:28:31 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/13 11:40:49 by arthur           ###   ########lyon.fr   */
+/*   Updated: 2021/03/14 10:25:43 by arthur           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int		rpl_easy_value(int **pa, const int size_a, const int *const_a)
 	*pa = cpy;
 	return (0);
 }
+
 //verified valid args and put it in an arrays
 static int	valid_args(int argc, char **argv, int **pa)
 {
@@ -119,12 +120,8 @@ int		main(int argc, char **argv)
 		return (0);
 	if (valid_args(argc, argv, &a))
 		return(1);
-	b = malloc(argc * sizeof(int));
-	if (!b)
-		return(error(a));
-	ft_memset((char *)b, 0, (argc - 1) * sizeof(int));
-	b[argc - 1] = -1;
-	//sort_stack_alg(a, b);
+	*b = 0;
+	//sort_stack_alg(&a, &b);
 	free(a);
 	free(b);
 	return (0);

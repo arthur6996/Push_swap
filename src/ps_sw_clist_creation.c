@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sw_clist.c                                      :+:      :+:    :+:   */
+/*   ps_sw_clist_creation.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arthur <arthur@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 11:35:16 by arthur            #+#    #+#             */
-/*   Updated: 2021/03/13 11:55:05 by arthur           ###   ########lyon.fr   */
+/*   Updated: 2021/03/14 09:55:34 by arthur           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,22 @@ t_clist	*create_add_top(int nbr, t_clist **first_elem)
 		return (0);
 	add_at_top(first_elem, new_elem);
 	return (new_elem);
+}
+
+int		size_clist(t_clist *st)
+{
+	int	i;
+
+	if (!st->is_first)
+		return (-1);
+	if (!st)
+		return (0);
+	i = 1;
+	st = st->next;
+	while(!st->is_first)
+	{
+		i++;
+		st = st->next;
+	}
+	return (i);
 }

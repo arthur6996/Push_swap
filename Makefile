@@ -34,7 +34,7 @@ OBJ_TEST		=	$(addprefix $(PATH_OBJ)/, $(SRC_TEST:.c=.o))
 
 #PUSH_SWAP
 SRC_PUSH_SWAP	=	$(SRC_TOOLS) ps_sw_main.c ps_sw_yt_algo.c \
-					ps_sw_clist_creation.c
+					ps_sw_clist_creation.c ps_sw_clist_operation.c
 
 OBJ_PUSH_SWAP	=	$(addprefix $(PATH_OBJ)/, $(SRC_PUSH_SWAP:.c=.o))
 

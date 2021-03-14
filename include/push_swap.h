@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 22:03:41 by abourbou          #+#    #+#             */
-/*   Updated: 2021/03/13 11:59:15 by arthur           ###   ########lyon.fr   */
+/*   Updated: 2021/03/14 09:57:40 by arthur           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void    yt_algo(int *a, int *b);
 t_clist	*new_clist(int nbr);
 void	add_at_top(t_clist **first_elem, t_clist *new_elem);
 t_clist	*create_add_top(int nbr, t_clist **first_elem);
+int		size_clist(t_clist *st);
 
-//circular list operations
+//TODO 
 t_clist	*get_n_elem(int n);
+//circular list operations
+
 #endif
